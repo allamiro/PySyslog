@@ -66,7 +66,21 @@
         <div class="container-lg px-4 py-md-5 pb-5">
             <div class="row gx-5">
                 <div class="col-md-6 pe-md-5 mb-md-0 mb-4">
-
+                    <form action="/submit" method="POST"> <!-- replace with your server-side processing script -->
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                        
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+                        
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone">
+                        
+                        <label for="message">Message:</label>
+                        <textarea id="message" name="message" rows="4" required></textarea>
+                        
+                        <button type="submit">Send</button>
+                    </form>
                 
                     </div>
             </div>
