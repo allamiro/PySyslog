@@ -39,6 +39,23 @@ Mailing List
 
 Installing PySyslog
 ===================
+* RHEL/Fedora/RockyLinux
+
+```
+
+sudo dnf install python3 -y 
+
+```
+
+
+
+* Ubuntu / Debian
+
+```
+sudo apt-get install python3 -y
+```
+
+
 
 
 Packages Provided
