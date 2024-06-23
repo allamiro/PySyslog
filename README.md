@@ -30,8 +30,43 @@ Here is the comprehensive list of log formats in the market ( Work in progress):
 * Rsyslog Log Format
 * NetFlow Log Format
 
+Directory Structure 
+==================
 
 
+```
+/usr/local/bin/
+├── psyslog
+
+/etc/psyslog/
+├── config.yaml
+
+/usr/local/lib/psyslog/
+├── psyslog/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── core.py
+│   ├── handlers/
+│   │   ├── __init__.py
+│   │   ├── input_handler.py
+│   │   ├── output_handler.py
+│   ├── transforms/
+│   │   ├── __init__.py
+│   │   ├── transformer.py
+│   ├── utils/
+│   │   ├── __init__.py
+│   │   ├── logger.py
+│   ├── main.py
+├── systemd/
+│   ├── psyslog.service
+├── LICENSE
+├── README.md
+
+/var/log/psyslog/
+├── psyslog.log
+
+/var/run/psyslog/
+```
 
 Mailing List
 ============
