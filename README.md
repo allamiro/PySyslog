@@ -10,7 +10,7 @@ With PySyslog LFC, you can effortlessly transform your log data into the desired
 ![pysyslog3](https://github.com/allamiro/PySyslog/assets/279790/258b8399-356d-48d0-9338-99fdf0502de9) </center>
 
 
-Here is the comprehensive list of log formats in the market:
+Here is the comprehensive list of log formats in the market ( Work in progress):
 
 * JSON (JavaScript Object Notation)
 * SYSLOG
