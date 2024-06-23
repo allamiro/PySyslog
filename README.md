@@ -112,4 +112,6 @@ Documentation
 
 Project Funding
 ===============
-
+As a small, independent project, we rely on the community's support. If you'd like to contribute financially, please consider making a donation or sponsoring our project.
+* Donate via GitHub Sponsors: 
+Thank you for considering contributing to PySyslog LFC!
