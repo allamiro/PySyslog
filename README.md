@@ -86,7 +86,24 @@ File bugs at :  security@pysyslog.com
 
 How to Contribue
 ================
+Thank you for considering contributing to PySyslog LFC! Your time and expertise will help us make this project even better. Here's how you can contribute:
 
+#### Code Contributions
+* Fork the repository on GitHub
+* Clone the forked repository and create a new branch for your changes
+* Make your changes, commit them with meaningful commit messages, and push them to your forked repository
+* Open a pull request against the main repository, explaining the changes you made and why they're useful
+  
+#### Issue Reporting and Tracking
+* Search for existing issues on GitHub before opening a new one
+* Create a new issue if you find a bug or have a feature request
+* Provide clear details about the issue, including expected behavior and any relevant screenshots or code snippets
+* Track your issue's progress and engage with developers to resolve it
+  
+#### Documentation Contributions
+* Help us improve our documentation by suggesting new topics or refining existing ones
+* Provide feedback on the clarity, accuracy, and organization of our documentation
+* Contribute to this README file or create new documentation files in the docs directory
 
 Documentation
 =============
