@@ -44,8 +44,6 @@ This is a community-driven effort to discuss and improve the PySyslog LFC open s
 
 * This is a discussion group; all members can post to the group.
 * New Members require approval before being allowed to join the group.
-* Posts do not require approval before being sent to the group.
-* The group will be listed in the Groups.io directory.
 * Messages can be viewed by anyone.
 
 
