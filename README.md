@@ -53,7 +53,7 @@ Packages available at :
 
 Reporting Bugs
 ==============
-File bugs at : 
+File bugs at :  security@pysyslog.com 
 
 
 
