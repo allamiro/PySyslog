@@ -12,40 +12,23 @@ With PySyslog LFC, you can effortlessly transform your log data into the desired
 
 Here is the comprehensive list of log formats in the market:
 
-
-    * JSON (JavaScript Object Notation)
-
-    * SYSLOG
-
-    * CEF (Common Event Format)
-
-    * ELK (Elasticsearch-Logstash-Kibana) JSON
-
-    * LKE (Linux kernel event)
-
-    * W3C Extended Log File Format
-
-    * Apache Log4j (XML and JSON formats)
-
-    * Graylog GEL (Grok Pattern Language)
-
-    * Splunk
-
-    * RFC 5424 (syslog message format)
-
-    * Syslog-NG (syslog-ng)
-
-    * Apache HTTP Server Log Format
-
-    * Microsoft Windows Event Log Format
-
-    * Brocade Fabric Advisor Log Format
-
-    * OpenTSDB Log Format
-
-    * Rsyslog Log Format
-
-    * NetFlow Log Format
+* JSON (JavaScript Object Notation)
+* SYSLOG
+* CEF (Common Event Format)
+* ELK (Elasticsearch-Logstash-Kibana) JSON
+* LKE (Linux kernel event)
+* W3C Extended Log File Format
+* Apache Log4j (XML and JSON formats)
+* Graylog GEL (Grok Pattern Language)
+* Splunk
+* RFC 5424 (syslog message format)
+* Syslog-NG (syslog-ng)
+* Apache HTTP Server Log Format
+* Microsoft Windows Event Log Format
+* Brocade Fabric Advisor Log Format
+* OpenTSDB Log Format
+* Rsyslog Log Format
+* NetFlow Log Format
 
 
 
