@@ -35,6 +35,18 @@ Here is the comprehensive list of log formats in the market ( Work in progress):
 
 Mailing List
 ============
+This is a community-driven effort to discuss and improve the PySyslog LFC project.
+
+we have also setup google groups at https://groups.google.com/g/pysyslog which you will come to join and share your thoughts.
+
+
+This is a community-driven effort to discuss and improve the PySyslog LFC open source project.
+
+* This is a discussion group; all members can post to the group.
+* New Members require approval before being allowed to join the group.
+* Posts do not require approval before being sent to the group.
+* The group will be listed in the Groups.io directory.
+* Messages can be viewed by anyone.
 
 
 Installing PySyslog
