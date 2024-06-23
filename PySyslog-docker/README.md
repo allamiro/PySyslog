@@ -1,2 +1,0 @@
-# PySyslog-docker
-
