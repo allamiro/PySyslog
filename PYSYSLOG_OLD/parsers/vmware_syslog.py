@@ -11,6 +11,7 @@ def vmware_syslog(log):
     }
  
   ]
+  # This is where i match the CEF fields with the pattern extracted from above
   field_mapping = {
     
   }
