@@ -25,7 +25,7 @@ logging.basicConfig(filename='logs/vmware.log', level=logging.INFO,datefmt='%Y-%
 
 handler = logging.handlers.RotatingFileHandler(filename='logs/vmware.log', maxBytes=20000, backupCount=2)
 handler.setLevel(logging.INFO)
-formatter = logging.Formatter('')
+formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
 handler.setFormatter(formatter)
 logging.getlogger('').addHandler(handler)
 
