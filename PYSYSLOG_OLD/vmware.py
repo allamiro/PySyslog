@@ -35,3 +35,20 @@ patterns = {
   r"^\d+" : vmware_syslog,
   r"^<(\d+)>\d+" : vmware_syslog,
 }
+
+
+# Main function 
+def convert(log):
+  for pattern, function in patterns.items():
+    if re.search(pattern,log):
+      cef_log = function(log)
+      if cef_log:
+        logging.info(f"log is parsed by the function")
+        return cef_log, function.__name___
+      else:
+        logging.error(f"log is not parsed or converted")
+        return None, None
+  logging.error(f"No match patterns")
+  return None
+
+
