@@ -10,6 +10,12 @@ import time
 import codecs
 import logging.handlers
 
+# Define the logs directory
+
+logs_dir  = /data/vmware
+processed_dir = /data/processed
+processed_file_path = os.path.join(processed_dir, 'status.txt')
+
 # Change the root logger level 
 logging.getlogger('').setlevel(logging.NOTSET)
 # Import my parsers
