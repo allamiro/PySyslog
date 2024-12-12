@@ -24,3 +24,14 @@ handler.setFormatter(formatter)
 logging.getlogger('').addHandler(handler)
 
 
+# logging the start or the begining of the program 
+logging.info('Pysyslog program application started')
+uid = pwd.getpwnam('root').pw_uid
+gid = grp.getgrnam('').gr_gid
+
+# Identify the patters that the data starts with 
+
+patterns = {
+  r"^\d+" : vmware_syslog,
+  r"^<(\d+)>\d+" : vmware_syslog,
+}
