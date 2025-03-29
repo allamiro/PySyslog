@@ -15,12 +15,6 @@ A lightweight, modular log processor with flow-based configuration.
 
 ## Installation
 
-### Quick Install (Using pip)
-
-```bash
-sudo pip3 install pysyslog-lfc
-```
-
 ### Manual Installation
 
 #### Prerequisites
@@ -45,7 +39,7 @@ cd pysyslog-lfc
 
 3. Install Python dependencies:
 ```bash
-sudo pip3 install -r requirements.txt
+pip3 install -r requirements.txt
 ```
 
 4. Install the package:
@@ -92,12 +86,12 @@ cd pysyslog-lfc
 
 3. Install Python dependencies:
 ```bash
-sudo pip3 install -r requirements.txt
+ pip3 install -r requirements.txt
 ```
 
 4. Install the package:
 ```bash
-sudo pip3 install .
+pip3 install .
 ```
 
 5. Create configuration directories:
