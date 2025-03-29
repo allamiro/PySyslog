@@ -1,9 +1,11 @@
 # PySyslog LFC
 
-A lightweight, modular log processor with flow-based configuration.
+A lightweight, modular log processor with flow-based configuration, built entirely in Python.
+
+
 
 ## Features
-
+- **Python-powered** core for flexibility and extensibility
 - Flow-based log processing model
 - Dynamic component loading
 - Support for various input sources (Unix socket, file, flow chaining)
