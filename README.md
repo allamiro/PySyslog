@@ -1,3 +1,7 @@
+<div align="center">
+  <img src="https://github.com/allamiro/PySyslog/assets/279790/258b8399-356d-48d0-9338-99fdf0502de9" alt="PySyslog Logo" width="300">
+</div>
+
 # PySyslog LFC
 
 A lightweight, modular log processor with flow-based configuration, built entirely in Python.
