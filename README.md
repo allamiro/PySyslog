@@ -23,175 +23,55 @@ A lightweight, modular log processor with flow-based configuration.
 - pip3
 - git
 
-#### Linux (Debian/Ubuntu)
+#### Linux/macOS
 
-1. Install system dependencies:
+1. Clone the repository:
 ```bash
-sudo apt update
-sudo apt install python3 python3-pip python3-dev git
-```
-
-2. Clone the repository:
-```bash
-git clone https://github.com/pysyslog/pysyslog-lfc.git
+git clone https://github.com/rsyslog/pysyslog-lfc.git
 cd pysyslog-lfc
 ```
 
-3. Install Python dependencies:
+2. Run the installation script:
 ```bash
-pip3 install -r requirements.txt
-```
-
-4. Install the package:
-```bash
-sudo pip3 install .
-```
-
-5. Create configuration directories:
-```bash
-sudo mkdir -p /etc/pysyslog/conf.d
-```
-
-6. Copy configuration files:
-```bash
-sudo cp etc/pysyslog/main.ini /etc/pysyslog/
-sudo cp etc/pysyslog/conf.d/*.ini /etc/pysyslog/conf.d/
-```
-
-7. Create system user:
-```bash
-sudo useradd -r -s /bin/false pysyslog
-```
-
-8. Set up systemd service:
-```bash
-sudo cp etc/systemd/system/pysyslog.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable pysyslog
-sudo systemctl start pysyslog
-```
-
-#### Linux (RHEL/CentOS)
-
-1. Install system dependencies:
-```bash
-sudo yum install python3 python3-pip python3-devel git
-```
-
-2. Clone the repository:
-```bash
-git clone https://github.com/pysyslog/pysyslog-lfc.git
-cd pysyslog-lfc
-```
-
-3. Install Python dependencies:
-```bash
- pip3 install -r requirements.txt
-```
-
-4. Install the package:
-```bash
-pip3 install .
-```
-
-5. Create configuration directories:
-```bash
-sudo mkdir -p /etc/pysyslog/conf.d
-```
-
-6. Copy configuration files:
-```bash
-sudo cp etc/pysyslog/main.ini /etc/pysyslog/
-sudo cp etc/pysyslog/conf.d/*.ini /etc/pysyslog/conf.d/
-```
-
-7. Create system user:
-```bash
-sudo useradd -r -s /sbin/nologin pysyslog
-```
-
-8. Set up systemd service:
-```bash
-sudo cp etc/systemd/system/pysyslog.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable pysyslog
-sudo systemctl start pysyslog
-```
-
-#### macOS
-
-1. Install system dependencies:
-```bash
-brew install python3 git
-```
-
-2. Clone the repository:
-```bash
-git clone https://github.com/pysyslog/pysyslog-lfc.git
-cd pysyslog-lfc
-```
-
-3. Install Python dependencies:
-```bash
-pip3 install -r requirements.txt
-```
-
-4. Install the package:
-```bash
-pip3 install .
-```
-
-5. Create configuration directories:
-```bash
-sudo mkdir -p /etc/pysyslog/conf.d
-```
-
-6. Copy configuration files:
-```bash
-sudo cp etc/pysyslog/main.ini /etc/pysyslog/
-sudo cp etc/pysyslog/conf.d/*.ini /etc/pysyslog/conf.d/
-```
-
-7. Set up launchd service:
-```bash
-sudo cp etc/launchd/com.pysyslog.plist /Library/LaunchDaemons/
-sudo launchctl load /Library/LaunchDaemons/com.pysyslog.plist
+sudo ./install.sh
 ```
 
 #### Windows
 
-1. Install Python 3.8 or higher from [python.org](https://www.python.org/downloads/)
-
-2. Clone the repository:
+1. Clone the repository:
 ```cmd
-git clone https://github.com/pysyslog/pysyslog-lfc.git
+git clone https://github.com/rsyslog/pysyslog-lfc.git
 cd pysyslog-lfc
 ```
 
-3. Install Python dependencies:
+2. Run the installation script as administrator:
 ```cmd
+install.bat
+```
+
+### Development Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/rsyslog/pysyslog-lfc.git
+cd pysyslog-lfc
+```
+
+2. Create a virtual environment:
+```bash
+python3 -m venv venv
+source venv/bin/activate  # Linux/macOS
+venv\Scripts\activate     # Windows
+```
+
+3. Install dependencies:
+```bash
 pip install -r requirements.txt
 ```
 
-4. Install the package:
-```cmd
-pip install .
-```
-
-5. Create configuration directories:
-```cmd
-mkdir C:\ProgramData\pysyslog\conf.d
-```
-
-6. Copy configuration files:
-```cmd
-copy etc\pysyslog\main.ini C:\ProgramData\pysyslog\
-copy etc\pysyslog\conf.d\*.ini C:\ProgramData\pysyslog\conf.d\
-```
-
-7. Install as Windows Service:
-```cmd
-python -m pysyslog install-service
+4. Install in development mode:
+```bash
+pip install -e .
 ```
 
 ## Configuration
@@ -280,7 +160,10 @@ pysyslog-lfc/
 │       ├── input/
 │       ├── parser/
 │       └── output/
-└── setup.py
+├── install.sh             # Linux/macOS installation script
+├── install.bat            # Windows installation script
+├── requirements.txt       # Python dependencies
+└── setup.py              # Python package setup
 ```
 
 ### Adding New Components
