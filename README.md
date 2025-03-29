@@ -1,152 +1,300 @@
+# PySyslog LFC
 
-PySyslog
-=========
-PySyslog LFC is a lightning-fast application that specializes in syslog log processing and format conversion. As a Python-based solution, it offers an intuitive and user-friendly experience for converting log data between various formats, including JSON, SYSLOG, and CEF.
+A lightweight, modular log processor with flow-based configuration.
 
-With PySyslog LFC, you can effortlessly transform your log data into the desired format, streamlining integration with your preferred log analytics or security information and event management (SIEM) systems. Whether you need to convert syslog logs from a specific system or device, or simply want to standardize your log data across different formats, PySyslog LFC has got you covered.
+## Features
 
+- Flow-based log processing model
+- Dynamic component loading
+- Support for various input sources (Unix socket, file, flow chaining)
+- Multiple parser types (RFC 3164, regex, passthrough)
+- Flexible output options (file, TCP, memory for flow chaining)
+- JSON-formatted logs
+- Systemd service integration
+- Clean, modern design without legacy syslog terminology
 
+## Installation
 
-![pysyslog3](https://github.com/allamiro/PySyslog/assets/279790/258b8399-356d-48d0-9338-99fdf0502de9) </center>
+### Quick Install (Using pip)
 
-
-Here is the comprehensive list of log formats in the market ( Work in progress):
-
-* JSON (JavaScript Object Notation)
-* SYSLOG
-* CEF (Common Event Format)
-* ELK (Elasticsearch-Logstash-Kibana) JSON
-* LKE (Linux kernel event)
-* W3C Extended Log File Format
-* Apache Log4j (XML and JSON formats)
-* Graylog GEL (Grok Pattern Language)
-* Splunk
-* RFC 5424 (syslog message format)
-* Syslog-NG (syslog-ng)
-* Apache HTTP Server Log Format
-* Microsoft Windows Event Log Format
-* Brocade Fabric Advisor Log Format
-* OpenTSDB Log Format
-* Rsyslog Log Format
-* NetFlow Log Format
-
-Directory Structure 
-==================
-
-
-```
-/usr/local/bin/
-├── psyslog
-
-/etc/psyslog/
-├── config.yaml
-
-/usr/local/lib/psyslog/
-├── psyslog/
-│   ├── __init__.py
-│   ├── config.py
-│   ├── core.py
-│   ├── handlers/
-│   │   ├── __init__.py
-│   │   ├── input_handler.py
-│   │   ├── output_handler.py
-│   ├── transforms/
-│   │   ├── __init__.py
-│   │   ├── transformer.py
-│   ├── utils/
-│   │   ├── __init__.py
-│   │   ├── logger.py
-│   ├── main.py
-├── systemd/
-│   ├── psyslog.service
-├── LICENSE
-├── README.md
-
-/var/log/psyslog/
-├── psyslog.log
-
-/var/run/psyslog/
+```bash
+sudo pip3 install pysyslog-lfc
 ```
 
-Mailing List
-============
-This is a community-driven effort to discuss and improve the PySyslog LFC project.
+### Manual Installation
 
-we have also setup google groups at https://groups.google.com/g/pysyslog which you will come to join and share your thoughts.
+#### Prerequisites
 
+- Python 3.8 or higher
+- pip3
+- git
 
-This is a community-driven effort to discuss and improve the PySyslog LFC open source project.
+#### Linux (Debian/Ubuntu)
 
-* This is a discussion group; all members can post to the group.
-* New Members require approval before being allowed to join the group.
-* Messages can be viewed by anyone.
-
-
-Installing PySyslog
-===================
-* RHEL/Fedora/RockyLinux
-
+1. Install system dependencies:
+```bash
+sudo apt update
+sudo apt install python3 python3-pip python3-dev git
 ```
 
-sudo dnf install python3 -y 
-
+2. Clone the repository:
+```bash
+git clone https://github.com/pysyslog/pysyslog-lfc.git
+cd pysyslog-lfc
 ```
 
-
-
-* Ubuntu / Debian
-
-```
-sudo apt-get install python3 -y
+3. Install Python dependencies:
+```bash
+sudo pip3 install -r requirements.txt
 ```
 
+4. Install the package:
+```bash
+sudo pip3 install .
+```
 
+5. Create configuration directories:
+```bash
+sudo mkdir -p /etc/pysyslog/conf.d
+```
 
+6. Copy configuration files:
+```bash
+sudo cp etc/pysyslog/main.ini /etc/pysyslog/
+sudo cp etc/pysyslog/conf.d/*.ini /etc/pysyslog/conf.d/
+```
 
-Packages Provided
------------------
+7. Create system user:
+```bash
+sudo useradd -r -s /bin/false pysyslog
+```
 
-Packages available at :
-* RPM : https://www.pysyslog.com/repositories/rpms
-* Debian : https://www.pysyslog.com/repositories/debs
+8. Set up systemd service:
+```bash
+sudo cp etc/systemd/system/pysyslog.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable pysyslog
+sudo systemctl start pysyslog
+```
 
-  
+#### Linux (RHEL/CentOS)
 
+1. Install system dependencies:
+```bash
+sudo yum install python3 python3-pip python3-devel git
+```
 
-Reporting Bugs
-==============
-File bugs at :  security@pysyslog.com 
+2. Clone the repository:
+```bash
+git clone https://github.com/pysyslog/pysyslog-lfc.git
+cd pysyslog-lfc
+```
 
+3. Install Python dependencies:
+```bash
+sudo pip3 install -r requirements.txt
+```
 
+4. Install the package:
+```bash
+sudo pip3 install .
+```
 
-How to Contribue
-================
-Thank you for considering contributing to PySyslog LFC! Your time and expertise will help us make this project even better. Here's how you can contribute:
+5. Create configuration directories:
+```bash
+sudo mkdir -p /etc/pysyslog/conf.d
+```
 
-#### Code Contributions
-* Fork the repository on GitHub
-* Clone the forked repository and create a new branch for your changes
-* Make your changes, commit them with meaningful commit messages, and push them to your forked repository
-* Open a pull request against the main repository, explaining the changes you made and why they're useful
-  
-#### Issue Reporting and Tracking
-* Search for existing issues on GitHub before opening a new one
-* Create a new issue if you find a bug or have a feature request
-* Provide clear details about the issue, including expected behavior and any relevant screenshots or code snippets
-* Track your issue's progress and engage with developers to resolve it
-  
-#### Documentation Contributions
-* Help us improve our documentation by suggesting new topics or refining existing ones
-* Provide feedback on the clarity, accuracy, and organization of our documentation
-* Contribute to this README file or create new documentation files in the docs directory
+6. Copy configuration files:
+```bash
+sudo cp etc/pysyslog/main.ini /etc/pysyslog/
+sudo cp etc/pysyslog/conf.d/*.ini /etc/pysyslog/conf.d/
+```
 
-Documentation
-=============
+7. Create system user:
+```bash
+sudo useradd -r -s /sbin/nologin pysyslog
+```
 
+8. Set up systemd service:
+```bash
+sudo cp etc/systemd/system/pysyslog.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable pysyslog
+sudo systemctl start pysyslog
+```
 
+#### macOS
 
-Project Funding
-===============
-As a small, independent project, we rely on the community's support. If you'd like to contribute financially, please consider making a donation or sponsoring our project.
-* Donate via GitHub Sponsors: 
-Thank you for considering contributing to PySyslog LFC!
+1. Install system dependencies:
+```bash
+brew install python3 git
+```
+
+2. Clone the repository:
+```bash
+git clone https://github.com/pysyslog/pysyslog-lfc.git
+cd pysyslog-lfc
+```
+
+3. Install Python dependencies:
+```bash
+pip3 install -r requirements.txt
+```
+
+4. Install the package:
+```bash
+pip3 install .
+```
+
+5. Create configuration directories:
+```bash
+sudo mkdir -p /etc/pysyslog/conf.d
+```
+
+6. Copy configuration files:
+```bash
+sudo cp etc/pysyslog/main.ini /etc/pysyslog/
+sudo cp etc/pysyslog/conf.d/*.ini /etc/pysyslog/conf.d/
+```
+
+7. Set up launchd service:
+```bash
+sudo cp etc/launchd/com.pysyslog.plist /Library/LaunchDaemons/
+sudo launchctl load /Library/LaunchDaemons/com.pysyslog.plist
+```
+
+#### Windows
+
+1. Install Python 3.8 or higher from [python.org](https://www.python.org/downloads/)
+
+2. Clone the repository:
+```cmd
+git clone https://github.com/pysyslog/pysyslog-lfc.git
+cd pysyslog-lfc
+```
+
+3. Install Python dependencies:
+```cmd
+pip install -r requirements.txt
+```
+
+4. Install the package:
+```cmd
+pip install .
+```
+
+5. Create configuration directories:
+```cmd
+mkdir C:\ProgramData\pysyslog\conf.d
+```
+
+6. Copy configuration files:
+```cmd
+copy etc\pysyslog\main.ini C:\ProgramData\pysyslog\
+copy etc\pysyslog\conf.d\*.ini C:\ProgramData\pysyslog\conf.d\
+```
+
+7. Install as Windows Service:
+```cmd
+python -m pysyslog install-service
+```
+
+## Configuration
+
+For detailed configuration documentation, see:
+- [Main Configuration](docs/configuration/main.md)
+- [Flow Configuration](docs/configuration/flows.md)
+
+## Usage
+
+### Command Line
+
+Start PySyslog LFC:
+```bash
+# Linux/macOS
+sudo pysyslog
+
+# Windows
+pysyslog
+```
+
+### Service Management
+
+#### Linux (systemd)
+```bash
+sudo systemctl start pysyslog
+sudo systemctl stop pysyslog
+sudo systemctl restart pysyslog
+sudo systemctl status pysyslog
+```
+
+#### macOS (launchd)
+```bash
+sudo launchctl start com.pysyslog
+sudo launchctl stop com.pysyslog
+sudo launchctl unload /Library/LaunchDaemons/com.pysyslog.plist
+sudo launchctl load /Library/LaunchDaemons/com.pysyslog.plist
+```
+
+#### Windows
+```cmd
+net start pysyslog
+net stop pysyslog
+```
+
+### Viewing Logs
+
+#### Linux
+```bash
+sudo journalctl -u pysyslog -f
+```
+
+#### macOS
+```bash
+sudo log show --predicate 'process == "pysyslog"' --last 5m
+```
+
+#### Windows
+```cmd
+Get-EventLog -LogName Application -Source pysyslog
+```
+
+## Development
+
+### Project Structure
+
+```
+pysyslog-lfc/
+├── bin/                    # Executable scripts
+├── docs/                   # Documentation
+│   └── configuration/      # Configuration docs
+├── etc/                    # Configuration files
+│   ├── pysyslog/
+│   │   ├── main.ini
+│   │   └── conf.d/
+│   ├── systemd/           # Linux service files
+│   ├── launchd/           # macOS service files
+│   └── windows/           # Windows service files
+├── lib/                    # Python package
+│   └── pysyslog/
+│       ├── __init__.py
+│       ├── main.py
+│       ├── config.py
+│       ├── flow.py
+│       ├── components.py
+│       ├── input/
+│       ├── parser/
+│       └── output/
+└── setup.py
+```
+
+### Adding New Components
+
+1. Create a new component file in the appropriate directory (`input/`, `parser/`, or `output/`)
+2. Implement the required interface
+3. Add the component to the `components` list in `main.ini`
+
+## License
+
+MIT License - see LICENSE file for details. 
